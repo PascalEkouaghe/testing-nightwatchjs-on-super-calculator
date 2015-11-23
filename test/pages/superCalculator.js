@@ -1,7 +1,20 @@
 (function() {
+  var getHistoryTableCellSelector = function getHistoryTableCellSelector(x, y) {
+    return 'tr:nth-child(' + x + ') td:nth-child(' + y + ')';
+  }
+
   var superCalculatorCommands = {
     calculate: function() {
       this.click('@calculate').api.pause(2500);
+      return this;
+    },
+    assertHistoryContains: function() {
+      console.log(arguments);
+      for(var i = arguments.length; i > 0 ; i--) {
+        var expectedHistoryElement = arguments[i - 1];
+        this.assert.containsText(getHistoryTableCellSelector(i, 2) , expectedHistoryElement.expr)
+        .assert.containsText(getHistoryTableCellSelector(i, 3), expectedHistoryElement.result);
+      }
       return this;
     }
   };

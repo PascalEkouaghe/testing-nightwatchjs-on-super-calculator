@@ -26,6 +26,11 @@
       .assert.containsText('@result', '2');
     },
 
+    'should historize the 2 previous operations in inverse order of entry': function(client) {
+      this.superCalculator.api.pause(200);
+      this.superCalculator.assertHistoryContains({expr: '3 - 1', result: '2'}, {expr: '1 + 2', result: '3'});
+    },
+
     '1 + 1 = 1 !!!': function(client) {
       this.superCalculator.setValue('@firstOp', 1)
       .setValue('@secondOp', 1)
