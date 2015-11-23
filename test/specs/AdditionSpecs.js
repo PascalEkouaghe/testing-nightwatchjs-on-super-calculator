@@ -24,6 +24,14 @@
       .setValue('@operator', '-')
       .calculate()
       .assert.containsText('@result', '2');
+    },
+
+    '1 + 1 = 1 !!!': function(client) {
+      this.superCalculator.setValue('@firstOp', 1)
+      .setValue('@secondOp', 1)
+      .setValue('@operator', '+')
+      .calculate()
+      .assert.containsText('@result', '1');
     }
   }
 })();
