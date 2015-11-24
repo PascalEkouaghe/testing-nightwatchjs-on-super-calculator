@@ -9,7 +9,6 @@
       return this;
     },
     assertHistoryContains: function() {
-      console.log(arguments);
       for(var i = arguments.length; i > 0 ; i--) {
         var expectedHistoryElement = arguments[i - 1];
         this.assert.containsText(getHistoryTableCellSelector(i, 2) , expectedHistoryElement.expr)
@@ -18,6 +17,7 @@
       return this;
     }
   };
+
   module.exports = {
     commands: [superCalculatorCommands],
     url:'http://juliemr.github.io/protractor-demo/',
