@@ -1,5 +1,5 @@
 (function() {
-  var getHistoryTableCellSelector = function getHistoryTableCellSelector(x, y) {
+  function getHistoryTableCellSelector(x, y) {
     return 'tr:nth-child(' + x + ') td:nth-child(' + y + ')';
   }
 
